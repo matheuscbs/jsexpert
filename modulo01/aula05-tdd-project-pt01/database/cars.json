@@ -1,1 +1,23 @@
-[{"id":"0b5df0cd-fc4e-53a6-b518-d8428596e164","name":"ser","releaseYear":"2004","available":true,"gasAvailable":true},{"id":"1d04d841-7da4-516b-8faf-f95d02483967","name":"laldizte","releaseYear":"2013","available":true,"gasAvailable":true},{"id":"a17ea29f-6a56-5422-8478-fe5be92e0cff","name":"op","releaseYear":"2008","available":true,"gasAvailable":true}]
+[
+  {
+    "id": "0b5df0cd-fc4e-53a6-b518-d8428596e164",
+    "name": "ser",
+    "releaseYear": "2004",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "1d04d841-7da4-516b-8faf-f95d02483967",
+    "name": "laldizte",
+    "releaseYear": "2013",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "a17ea29f-6a56-5422-8478-fe5be92e0cff",
+    "name": "op",
+    "releaseYear": "2008",
+    "available": true,
+    "gasAvailable": true
+  }
+]
