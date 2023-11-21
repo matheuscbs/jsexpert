@@ -6,7 +6,7 @@ import Draftlog from "draftlog";
 
 describe("TerminalController", () => {
   let terminalController;
-  let readlineStub, draftlogStub, consoleStub;
+  let createInterfaceStub, draftLogListenerMock, consoleDraftMock;
 
   beforeEach(() => {
     createInterfaceStub = sinon
@@ -15,10 +15,14 @@ describe("TerminalController", () => {
         question: sinon.stub().yields(null),
         close: sinon.stub(),
       });
-    draftlogStub = sinon.stub(Draftlog, "addLineListener").returns({});
-    consoleStub = sinon.stub(console, "draft").returns(() => {});
+    draftLogListenerMock = { addLineListener: sinon.stub() };
+    consoleDraftMock = sinon.stub().returns(() => {});
 
-    terminalController = new TerminalController();
+    terminalController = new TerminalController(
+      createInterfaceStub,
+      draftLogListenerMock,
+      consoleDraftMock
+    );
   });
 
   afterEach(() => {

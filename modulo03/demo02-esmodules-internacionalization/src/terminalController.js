@@ -6,17 +6,12 @@ import readline from "readline";
 import Person from "./person.js";
 
 export default class TerminalController {
-  constructor(
-    readlineModule = readline,
-    draftlogModule = Draftlog,
-    consoleModule = console
-  ) {
-    this.readlineModule = readlineModule;
-    this.draftlogModule = draftlogModule;
-    this.consoleModule = consoleModule;
-    this.print = null;
+  constructor(readlineInterface, draftLogListener, consoleDraft) {
+    this.terminal = readlineInterface;
+    this.draftLogListener = draftLogListener;
+    this.consoleDraft = consoleDraft;
     this.data = [];
-    this.terminal = null;
+    this.print = null;
   }
 
   initializeTerminal(database, language) {
