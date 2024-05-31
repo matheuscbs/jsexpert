@@ -1,0 +1,23 @@
+[
+  {
+    "id": "2c890656-d498-5c3d-aa87-7767f03b50fb",
+    "name": "bimkum",
+    "releaseYear": "2010",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "4f3c20fd-0aaa-5b2d-b7a6-d752ecd8ad7f",
+    "name": "wut",
+    "releaseYear": "2021",
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "23be498d-19ba-5563-9769-6fc8bed80091",
+    "name": "biwwi",
+    "releaseYear": "2007",
+    "available": true,
+    "gasAvailable": true
+  }
+]
