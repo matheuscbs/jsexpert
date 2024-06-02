@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha --watch --exclude 'node_modules/**' --parallel */**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel */**/*.test.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^4.4.1",
+    "mocha": "^8.4.0",
+    "pdf-parse": "^1.1.1",
+    "safe-regex": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "nyc": "^15.1.0"
+  }
+}
