@@ -10,7 +10,7 @@ describe("TextProcessorFluentAPI test suite", () => {
   });
 
   it("#extractPeopleData", () => {
-    const result = new TextProcessorFluentAPI(mock).extractPeopleData();
+    const result = new TextProcessorFluentAPI(mock).extractPeopleData().build();
     const expected = [
       "Xuxa da Silva, brasileira, casada, CPF 235.743.420-12, residente e\n" +
         "domiciliada a Rua dos bobos, zero, bairro Alphaville, São Paulo.",
@@ -138,6 +138,83 @@ describe("TextProcessorFluentAPI test suite", () => {
         "bairro Jardins",
         "São Paulo.",
       ],
+    ];
+    expect(result).to.be.deep.equal(expected);
+  });
+
+  it("#mapPerson", () => {
+    const content = [
+      [
+        "Xuxa da Silva",
+        "brasileira",
+        "casada",
+        "CPF 235.743.420-12",
+        "residente e domiciliada a Rua dos bobos",
+        "zero",
+        "bairro Alphaville",
+        "São Paulo.",
+      ],
+      [
+        "Arya Robbin",
+        "belga",
+        "casado",
+        "CPF 884.112.200-52",
+        "residente e domiciliada a Av. paulista",
+        "1400",
+        "bairro Consolação",
+        "São Paulo.",
+      ],
+      [
+        "Júlia Menezes",
+        "brasileira",
+        "solteira",
+        "CPF 297.947.800-81",
+        "residente e domiciliada a Av. dos Estados",
+        "99",
+        "bairro Jardins",
+        "São Paulo.",
+      ],
+    ];
+
+    const result = new TextProcessorFluentAPI(content).mapPerson().build();
+
+    const expected = [
+      {
+        nome: "Xuxa da Silva",
+        nacionalidade: "Brasileira",
+        estadoCivil: "Casada",
+        cpf: "235.743.420-12",
+        endereco: {
+          logradouro: "Rua dos bobos",
+          numero: "zero",
+          bairro: "Alphaville",
+          cidade: "São Paulo",
+        },
+      },
+      {
+        nome: "Arya Robbin",
+        nacionalidade: "Belga",
+        estadoCivil: "Casado",
+        cpf: "884.112.200-52",
+        endereco: {
+          logradouro: "Av. paulista",
+          numero: "1400",
+          bairro: "Consolação",
+          cidade: "São Paulo",
+        },
+      },
+      {
+        nome: "Júlia Menezes",
+        nacionalidade: "Brasileira",
+        estadoCivil: "Solteira",
+        cpf: "297.947.800-81",
+        endereco: {
+          logradouro: "Av. dos Estados",
+          numero: "99",
+          bairro: "Jardins",
+          cidade: "São Paulo",
+        },
+      },
     ];
     expect(result).to.be.deep.equal(expected);
   });

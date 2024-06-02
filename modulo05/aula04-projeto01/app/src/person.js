@@ -1,7 +1,16 @@
 const { evaluateRegex } = require("./util");
 
 class Person {
-  constructor([nome, nacionalidade, estadoCivil, cpf, enderecoCompleto]) {
+  constructor([
+    nome,
+    nacionalidade,
+    estadoCivil,
+    cpf,
+    logradouro,
+    numero,
+    bairro,
+    cidade,
+  ]) {
     const firstLetterExp = evaluateRegex(/^(\w)(.*)$/);
 
     const formatFirstLetter = (word) => {
@@ -15,10 +24,15 @@ class Person {
     this.estadoCivil = formatFirstLetter(estadoCivil);
     this.cpf = cpf.replace(evaluateRegex(/CPF\s*/), "");
 
+    logradouro = logradouro.replace("residente e domiciliada a ", "");
+
+    const enderecoCompleto = `${logradouro}, ${numero}, ${bairro}, ${cidade}`;
+
     const enderecoParts = enderecoCompleto
       .split(", ")
       .map((part) => part.trim());
-    if (enderecoParts.length < 4) {
+
+    if (enderecoParts.length !== 4) {
       throw new Error("Endereço incompleto fornecido ao construtor de Person.");
     }
 

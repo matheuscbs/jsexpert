@@ -4,6 +4,7 @@
 // a diferença que aqui é sobre métodos encadeados,
 
 const { evaluateRegex } = require("./util");
+const Person = require("./person");
 
 // o Builder sobre a construção de objetos
 class TextProcessorFluentAPI {
@@ -26,9 +27,9 @@ class TextProcessorFluentAPI {
     const matchPerson =
       /(?<=(?:contratada|contratante):\s{1})(?!\s)(.*\n.*?)$/gim;
     // faz o match para encontrar a string inteira que contém os dados que precisamos
-    const onlyPerson = this.#content.match(matchPerson);
+    this.#content = this.#content.match(matchPerson) || [];
     // console.log("onlyPerson", matchPerson.test(this.#content));
-    return onlyPerson;
+    return this;
   }
 
   divideTextInColumns() {
@@ -41,6 +42,13 @@ class TextProcessorFluentAPI {
     this.#content = this.#content.map((line) =>
       line.map((entry) => entry.replace(/\s+/g, " ").trim())
     );
+    return this;
+  }
+
+  mapPerson() {
+    this.#content = this.#content.map((person) => {
+      return new Person(person);
+    });
     return this;
   }
 

@@ -9,7 +9,10 @@ describe("Person", () => {
       "brasileira",
       "casada",
       "CPF 235.743.420-12",
-      "Rua dos bobos, zero, bairro Alphaville, São Paulo.",
+      "residente e domiciliada a Rua dos bobos",
+      "zero",
+      "bairro Alphaville",
+      "São Paulo.",
     ];
 
     const result = new Person(content);
