@@ -218,4 +218,44 @@ describe("TextProcessorFluentAPI test suite", () => {
     ];
     expect(result).to.be.deep.equal(expected);
   });
+
+  it("#mapPerson should handle errors when data is incomplete", () => {
+    const content = [
+      [
+        "Xuxa da Silva",
+        "brasileira",
+        "casada",
+        "CPF 235.743.420-12",
+        "Rua dos bobos", // Dados incompletos
+        "zero",
+        // Faltando 'bairro' e 'cidade'
+      ],
+    ];
+
+    const fluentAPI = new TextProcessorFluentAPI(content);
+    expect(() => fluentAPI.mapPerson().build()).to.throw(
+      "Endereço incompleto fornecido ao construtor de Person."
+    );
+  });
+
+  it("#mapPerson should handle errors for each possible missing data scenario", () => {
+    const incompleteDataSets = [
+      [
+        "Xuxa da Silva",
+        "brasileira",
+        "casada",
+        "CPF 235.743.420-12",
+        "Rua dos bobos",
+        "zero",
+      ],
+      ["Xuxa da Silva", "brasileira", "casada", "CPF 235.743.420-12"],
+    ];
+
+    incompleteDataSets.forEach((dataSet) => {
+      const fluentAPI = new TextProcessorFluentAPI([dataSet]);
+      expect(() => fluentAPI.mapPerson().build()).to.throw(
+        "Endereço incompleto fornecido ao construtor de Person."
+      );
+    });
+  });
 });

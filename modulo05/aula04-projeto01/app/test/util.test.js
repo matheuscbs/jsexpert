@@ -1,6 +1,6 @@
 const { describe, it } = require("mocha");
 const { expect } = require("chai");
-const { InvalidRegexError, evaluateRegex } = require("../src/util");
+const { InvalidRegexError, evaluateRegex } = require("../src/utils");
 
 describe("Util", () => {
   it("#evaluateRegex should throw an error using an usafe regex", () => {

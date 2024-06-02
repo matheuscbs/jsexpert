@@ -1,4 +1,4 @@
-const { evaluateRegex } = require("./util");
+const { evaluateRegex } = require("./utils");
 
 class Person {
   constructor([
@@ -11,6 +11,10 @@ class Person {
     bairro,
     cidade,
   ]) {
+    if (arguments[0].length < 8) {
+      throw new Error("Endereço incompleto fornecido ao construtor de Person.");
+    }
+
     const firstLetterExp = evaluateRegex(/^(\w)(.*)$/);
 
     const formatFirstLetter = (word) => {
@@ -31,10 +35,6 @@ class Person {
     const enderecoParts = enderecoCompleto
       .split(", ")
       .map((part) => part.trim());
-
-    if (enderecoParts.length !== 4) {
-      throw new Error("Endereço incompleto fornecido ao construtor de Person.");
-    }
 
     this.endereco = {
       logradouro: enderecoParts[0],

@@ -3,7 +3,7 @@
 // e no fim, chama o build. Muito similar ao padrão Builder
 // a diferença que aqui é sobre métodos encadeados,
 
-const { evaluateRegex } = require("./util");
+const { evaluateRegex } = require("./utils");
 const Person = require("./person");
 
 // o Builder sobre a construção de objetos
@@ -27,7 +27,7 @@ class TextProcessorFluentAPI {
     const matchPerson =
       /(?<=(?:contratada|contratante):\s{1})(?!\s)(.*\n.*?)$/gim;
     // faz o match para encontrar a string inteira que contém os dados que precisamos
-    this.#content = this.#content.match(matchPerson) || [];
+    this.#content = this.#content.match(matchPerson);
     // console.log("onlyPerson", matchPerson.test(this.#content));
     return this;
   }

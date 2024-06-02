@@ -31,4 +31,18 @@ describe("Person", () => {
 
     expect(result).to.be.deep.equal(expected);
   });
+
+  it("should throw an error if the address is incomplete", () => {
+    const incompleteContent = [
+      "Xuxa da Silva",
+      "brasileira",
+      "casada",
+      "CPF 235.743.420-12",
+      "Rua dos bobos, zero",
+    ];
+
+    expect(() => new Person(incompleteContent)).to.throw(
+      "Endereço incompleto fornecido ao construtor de Person."
+    );
+  });
 });

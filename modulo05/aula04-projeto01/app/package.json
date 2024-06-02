@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx mocha --watch --exclude 'node_modules/**' --parallel */**/*.test.js",
-    "test:cov": "npx nyc npx mocha --parallel */**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel --exclude 'node_modules/**' */**/*.test.js",
     "start": "node src/index.js"
   },
   "keywords": [],
