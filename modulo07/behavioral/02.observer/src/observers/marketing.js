@@ -4,7 +4,7 @@ export default class Marketing {
     // nao deve-se ter await no notify porque a responsabilidade é só emitir eventos
     // só notificar todo mundo
     console.log(
-      `[${id}]: [marketing] will sender an welcome email to [${userName}]`
+      `[${id}]: [marketing] will send an welcome email to [${userName}]`
     );
   }
 }
