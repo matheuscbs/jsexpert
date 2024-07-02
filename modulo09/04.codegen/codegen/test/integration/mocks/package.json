@@ -1,0 +1,9 @@
+{
+  "name": "@matheuscbs/codegen-mock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "matheuscbs",
+  "license": "ISC"
+}
