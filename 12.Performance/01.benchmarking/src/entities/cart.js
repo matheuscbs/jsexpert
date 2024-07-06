@@ -1,7 +1,10 @@
+// import { v4 as uuid } from "uuid";
+import { randomUUID as uuid } from "crypto";
 import Product from "./product.js";
 
 export default class Cart {
   constructor({ at, products }) {
+    this.id = uuid();
     this.at = at;
     this.products = this.removeUndefinedProps(products);
     this.total = this.getCartPrice();

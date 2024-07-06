@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "matheuscbs",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "uuid": "^10.0.0"
+  }
 }
