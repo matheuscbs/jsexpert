@@ -1,0 +1,25 @@
+{
+  "name": "@matheuscbs/02.memleak-events",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "CLIMEM=8999 node -r climem index.js",
+    "climem": "npx climem 8999",
+    "test": "npx autocannon http://localhost:3000",
+    "flame-0x": "npx 0x -- --on-port 'autocannon localhost:3000' node index.js",
+    "clinic-doctor": "npx clinic doctor --on-port 'autocannon localhost:3000' -- node index.js",
+    "clinic-flame": "npx clinic flame --on-port 'autocannon localhost:3000' -- node index.js",
+    "clinic-heapprofiler": "npx clinic heapprofiler --on-port 'autocannon localhost:3000' -- node index.js"
+  },
+  "keywords": [],
+  "author": "matheuscbs",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "0x": "^5.7.0",
+    "autocannon": "^7.15.0",
+    "climem": "^2.0.0",
+    "clinic": "^13.0.0"
+  }
+}
